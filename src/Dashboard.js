@@ -1,5 +1,6 @@
 import * as React from 'react';
 import RGL, { WidthProvider } from 'react-grid-layout';
+import { dashboardLayout } from './dashboard-data';
 import WidgetWrapper from './WidgetWrapper';
 // import silv from "./sylvester.png";
 // import { Responsive, WidthProvider } from "react-grid-layout";
@@ -25,22 +26,13 @@ const Dashboard = () => {
   };
 
   const [showGuideLines, setShowGuideLines] = React.useState(false);
-  const [layout, setLayout] = React.useState([
-    { x: 0, y: 0, w: 1, h: 2, i: '1' },
-    { x: 0, y: 1, w: 3, h: 2, i: '2' },
-  ]);
-
-  // state = {
-  //   layout: ,
-  //   showGuideLines: false,
-  // };
+  const [layout, setLayout] = React.useState(dashboardLayout);
 
   const rows =
     layout.reduce((a, i) => {
       return Math.max(a, i.y + i.h);
     }, 1) * 2;
 
-  // console.log(layout);
   return (
     <React.Fragment>
       <div className="page-wrapper">
@@ -109,14 +101,15 @@ const Dashboard = () => {
               {layout.map((item) => (
                 <WidgetWrapper
                   style={{ borderRadius: 5 }}
-                  key={item.i}
+                  key={item.id}
                   data-grid={item}
-                  widgetId={item.i}
+                  widgetId={item.id}
+                  title={item.title}
                   onWidgetRemoved={(removeId) => {
-                    setLayout((l) => l.filter((w) => w.i !== removeId));
+                    setLayout((l) => l.filter((w) => w.id !== removeId));
                   }}
                 >
-                  <span>{item.i}</span>
+                  {/* <span>{item.id}</span> */}
                 </WidgetWrapper>
               ))}
             </ReactGridLayout>

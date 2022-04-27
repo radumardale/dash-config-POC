@@ -30,7 +30,16 @@ const WidgetWrapper = React.forwardRef(
         <div className="widget-header">
           <span className="widget-title">{title}</span>
         </div>
-        <div>{props.children}</div>
+        <div
+          style={{
+            backgroundImage: `url('/images/${widgetId}.svg')`,
+            backgroundPosition: 'center',
+            backgroundSize: 'contain',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          {props.children}
+        </div>
 
         <span
           className="remove-widget"
