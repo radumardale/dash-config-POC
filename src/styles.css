@@ -5,6 +5,7 @@
   --border: #CBCBCB;
   --gray-bg: #F8F8F8;
   --black-80: #333333;
+  --cream-20: #FCFBF8;
 }
 
 body {
@@ -12,6 +13,7 @@ body {
   margin: 0;
   height: 100vh;
 
+  font-family: aktiv-grotesk, sans-serif;
   color: var(--black-80);
 }
 
@@ -135,11 +137,24 @@ body {
 }
 
 .left-panel {
-  border-right: 1px solid lightgray;
-  padding: 10px 15px;
+  /* padding: 10px 15px; */
+  background: white;
+  display:flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.left-top-section {
+  padding: 20px;
+  border-bottom: 1px solid var(--light-border);
+  display:flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .right-panel {
+  background: var(--cream-20);
+  padding: 20px;
 }
 
 .droppable-element {
@@ -163,4 +178,13 @@ body {
 .widget-header {
   padding: 20px;
   border-bottom: 1px solid var(--light-border);
+}
+
+.drop-removed-items {
+  border: 1px dashed var(--medium-purple-100);
+  border-radius: 4px;
+  color: var(--medium-purple-100);
+  padding: 30px 10px;
+  text-align: center;
+  font-size: 16px;
 }

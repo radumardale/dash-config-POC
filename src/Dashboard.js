@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import RGL, { WidthProvider } from 'react-grid-layout';
 import WidgetWrapper from './WidgetWrapper';
 // import silv from "./sylvester.png";
@@ -47,15 +46,21 @@ class Dashboard extends React.PureComponent {
         return Math.max(a, i.y + i.h);
       }, 1) * 2;
 
-    console.log(this.state.layout);
+    // console.log(this.state.layout);
     return (
       <React.Fragment>
         <div className="page-wrapper">
           <div className="left-panel">
-            {/* <div>
-              <button onClick={this.addNewItem}>Add item</button>
-            </div> */}
-            <h3>Available widgets</h3>
+            <div className="left-top-section">
+              <span>Available widgets</span>
+
+              <div className="drop-removed-items">
+                <span>
+                  Drag items here to remove them from the summary layout.
+                </span>
+              </div>
+            </div>
+
             <div>
               <div
                 className="droppable-element"
@@ -90,7 +95,7 @@ class Dashboard extends React.PureComponent {
                   // this.setState({ layout });
                 }}
                 onDrop={(layout, layoutItem, _event) => {
-                  console.log(layoutItem);
+                  // console.log(layoutItem);
                   this.setState({ layout, showGuideLines: false });
                 }}
                 onDragStart={(e) => {

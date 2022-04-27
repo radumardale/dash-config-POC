@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 const WidgetWrapper = React.forwardRef(
   ({ style, className, title = 'Unnamed widget yet', ...props }, ref) => {
@@ -7,7 +6,10 @@ const WidgetWrapper = React.forwardRef(
     return (
       <div
         style={{
-          /* styles */ position: 'relative',
+          // /* styles */ position: 'relative',
+          display: 'grid',
+          gridTemplateColumns: '1fr',
+          gridTemplateRows: 'max-content 1fr',
           ...style,
         }}
         className={className}
