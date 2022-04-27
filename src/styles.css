@@ -26,7 +26,7 @@ body {
   transition: height 200ms ease;
   height: 100%;
 }
-.dash-wraper {
+.dash-wrapper {
   height: 100%;
   position: relative;
 }
@@ -39,8 +39,8 @@ body {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(10, 100px);
-  gap: 10px;
-  padding: 10px;
+  gap: 20px;
+  padding: 20px;
 }
 .decoy {
   height: 100%;

@@ -7,14 +7,6 @@ import WidgetWrapper from './WidgetWrapper';
 // const ReactGridLayout = WidthProvider(Responsive);
 const ReactGridLayout = WidthProvider(RGL);
 
-let idCounter = 0;
-
-const getId = () => {
-  idCounter++;
-
-  return idCounter.toString();
-};
-
 const Dashboard = () => {
   const defaultProps = {
     isDraggable: true,
@@ -25,7 +17,7 @@ const Dashboard = () => {
     cols: 6,
     // cols: { lg: 6, md: 6, sm: 6, xs: 6, xxs: 6 },
     // ---
-    margin: [10, 10],
+    margin: [20, 20],
     autoSize: true,
     // verticalCompact: false,
     compactType: null, // null, "horizontal", "vertical"
@@ -78,7 +70,7 @@ const Dashboard = () => {
         </div>
 
         <div className="right-panel">
-          <div className="dash-wraper">
+          <div className="dash-wrapper">
             {showGuideLines && (
               <div className="grid-decoy-wrapper">
                 {new Array(rows * 6)
