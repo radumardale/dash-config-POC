@@ -1,3 +1,8 @@
+:root {
+  --medium-purple: #6356DD;
+  --border: #F4F2ED;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -15,7 +20,6 @@ body {
 }
 .dash-wraper {
   height: 100%;
-  /* background: lime; */
   position: relative;
 }
 .miau {
@@ -33,7 +37,7 @@ body {
 .decoy {
   height: 100%;
   width: 100%;
-  border-radius: 5px;
+  border-radius: 8px;
   border: 1px solid #cbcbcb;
   background: #f8f8f8;
 }
@@ -48,18 +52,19 @@ body {
 .react-grid-item {
   transition: all 200ms ease;
   transition-property: left, top;
-  background: rgba(0, 132, 255, 0.473);
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
+  border-radius: 8px;
+  background-color: #FFFFFF;
+  box-shadow: 0 6px 10px 0 rgba(38,32,86,0.07), 0 1px 18px 0 rgba(38,32,86,0.06), 0 3px 5px -1px rgba(38,32,86,0.1);  font-family: Arial, Helvetica, sans-serif;
+  /* text-align: center; */
   /* display: flex; */
   /* flex-direction: column; */
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: max-content 1fr;
+  /* display: grid; */
+  /* grid-template-columns: 1fr; */
+  /* grid-template-rows: max-content 1fr; */
 }
 .react-grid-item span {
-  display: inline-block;
-  padding: 20px 10px;
+  /* display: inline-block; */
+  /* padding: 20px 10px; */
 }
 .react-grid-item.cssTransforms {
   transition-property: transform;
@@ -89,16 +94,27 @@ body {
   user-select: none;
 }
 
-.react-grid-item > .react-resizable-handle {
+.react-grid-item.react-grid-placeholder .react-resizable-handle {
+  display: none;
+}
+
+.react-grid-item .react-resizable-handle {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  /* width: 20px; */
+  /* height: 20px; */
   bottom: 0;
   right: 0;
   cursor: se-resize;
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 20px 20px;
+  border-color: transparent transparent var(--medium-purple) transparent;
+  
 }
 
-.react-grid-item > .react-resizable-handle::after {
+/* .react-grid-item .react-resizable-handle::after {
   content: "";
   position: absolute;
   right: 3px;
@@ -107,7 +123,7 @@ body {
   height: 5px;
   border-right: 2px solid rgba(0, 0, 0, 0.4);
   border-bottom: 2px solid rgba(0, 0, 0, 0.4);
-}
+} */
 
 /* ------ */
 .page-wrapper {

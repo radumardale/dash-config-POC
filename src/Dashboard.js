@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import RGL, { WidthProvider } from 'react-grid-layout';
+import WidgetWrapper from './WidgetWrapper';
 // import silv from "./sylvester.png";
 // import { Responsive, WidthProvider } from "react-grid-layout";
 
@@ -39,13 +40,6 @@ class Dashboard extends React.PureComponent {
     ],
     showGuideLines: false,
   };
-
-  generateDOM = () =>
-    this.state.layout.map((item) => (
-      <div style={{ borderRadius: 5 }} key={item.i} data-grid={item}>
-        <span>{item.i}</span>
-      </div>
-    ));
 
   render() {
     const rows =
@@ -112,7 +106,15 @@ class Dashboard extends React.PureComponent {
                   this.setState({ showGuideLines: false });
                 }}
               >
-                {this.generateDOM()}
+                {this.state.layout.map((item) => (
+                  <WidgetWrapper
+                    style={{ borderRadius: 5 }}
+                    key={item.i}
+                    data-grid={item}
+                  >
+                    <span>{item.i}</span>
+                  </WidgetWrapper>
+                ))}
               </ReactGridLayout>
             </div>
           </div>
