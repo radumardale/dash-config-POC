@@ -96,6 +96,17 @@ const Dashboard = () => {
                     onClick={() => {
                       addWidget(w);
                     }}
+                    onDragStart={(e) => {
+                      var img = new Image();
+                      img.src =
+                        'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
+                      e.dataTransfer.setDragImage(img, 10, 10);
+                      e.dataTransfer.dropEffect = 'move';
+                    }}
+                    onDragEnd={(e) => {
+                      // console.log('!!', e, e.target);
+                      // e.target.style.width = '';
+                    }}
                   >
                     {/* Droppable Element (Drag me!) */}
                   </WidgetWrapper>
@@ -144,12 +155,17 @@ const Dashboard = () => {
             )}
             <ReactGridLayout
               {...defaultProps}
+              autoSize={false}
+              droppingItem={{ i: 'miay', w: 2, h: 2 }}
               isDroppable={true}
               onLayoutChange={(l) => {
                 // console.log('onlayout change', l);
                 // if (isMounted) {
                 //   setLayout(l);
                 // }
+              }}
+              onDrop={(...e) => {
+                console.log(e);
               }}
               onDragStart={(e) => {
                 setShowGuideLines(true);
@@ -163,6 +179,7 @@ const Dashboard = () => {
               onResizeStop={(e) => {
                 setShowGuideLines(false);
               }}
+              layout={layout}
             >
               {layout.map((item) => (
                 <WidgetWrapper
