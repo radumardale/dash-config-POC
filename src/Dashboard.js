@@ -134,7 +134,7 @@ const Dashboard = () => {
           <div className="dash-wrapper">
             {showGuideLines && (
               <div className="grid-decoy-wrapper">
-                {new Array(rows * 16)
+                {new Array(rows * 6)
                   .fill(null)
                   .map((_, index) => index)
                   .map((v) => {
