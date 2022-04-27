@@ -1,13 +1,18 @@
 :root {
   --medium-purple-100: #262DAA;
   --medium-purple: #6356DD;
-  --border: #F4F2ED;
+  --light-border: #F4F2ED;
+  --border: #CBCBCB;
+  --gray-bg: #F8F8F8;
+  --black-80: #333333;
 }
 
 body {
   padding: 0;
   margin: 0;
   height: 100vh;
+
+  color: var(--black-80);
 }
 
 #root {
@@ -23,7 +28,7 @@ body {
   height: 100%;
   position: relative;
 }
-.miau {
+.grid-decoy-wrapper {
   position: absolute;
   left: 0;
   right: 0;
@@ -39,8 +44,8 @@ body {
   height: 100%;
   width: 100%;
   border-radius: 8px;
-  border: 1px solid #cbcbcb;
-  background: #f8f8f8;
+  border: 1px solid var(--border);
+  background: var(--gray-bg);
 }
 .sylv {
   height: 100%;
@@ -56,20 +61,12 @@ body {
   border-radius: 8px;
   background-color: #FFFFFF;
   box-shadow: 0 6px 10px 0 rgba(38,32,86,0.07), 0 1px 18px 0 rgba(38,32,86,0.06), 0 3px 5px -1px rgba(38,32,86,0.1);  font-family: Arial, Helvetica, sans-serif;
-  /* text-align: center; */
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* display: grid; */
-  /* grid-template-columns: 1fr; */
-  /* grid-template-rows: max-content 1fr; */
 }
-.react-grid-item span {
-  /* display: inline-block; */
-  /* padding: 20px 10px; */
-}
+
 .react-grid-item.cssTransforms {
   transition-property: transform;
 }
+
 .react-grid-item.resizing {
   z-index: 1;
   will-change: width, height;
@@ -83,7 +80,7 @@ body {
 
 .react-grid-item.react-grid-placeholder {
   background: transparent;
-  border: 2px dashed purple;
+  border: 1px dashed var(--medium-purple-100);
   opacity: 1;
   border-radius: 5px;
   transition-duration: 100ms;
@@ -151,4 +148,19 @@ body {
   padding: 20px;
   /* max-width: 200px; */
   /* min-height: 300px; */
+}
+
+
+/* --- */
+
+.widget-title {
+  font-family: meno-display;
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+.widget-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--light-border);
 }

@@ -14,8 +14,8 @@ const WidgetWrapper = React.forwardRef(
         ref={ref}
         {...restOfProps}
       >
-        <div>
-          <h2>{title}</h2>
+        <div className="widget-header">
+          <span className="widget-title">{title}</span>
         </div>
         <div>{props.children}</div>
       </div>

@@ -73,7 +73,7 @@ class Dashboard extends React.PureComponent {
           <div className="right-panel">
             <div className="dash-wraper">
               {this.state.showGuideLines && (
-                <div className="miau">
+                <div className="grid-decoy-wrapper">
                   {new Array(rows * 6)
                     .fill(null)
                     .map((_, index) => index)
