@@ -99,6 +99,10 @@ body {
   display: none;
 }
 
+.react-grid-item.react-resizable-hide .react-resizable-handle {
+  display: none;
+}
+
 .react-grid-item .react-resizable-handle {
   opacity: 0;
   pointer-events: none;
