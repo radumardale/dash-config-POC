@@ -111,6 +111,10 @@ const Dashboard = () => {
                   style={{ borderRadius: 5 }}
                   key={item.i}
                   data-grid={item}
+                  widgetId={item.i}
+                  onWidgetRemoved={(removeId) => {
+                    setLayout((l) => l.filter((w) => w.i !== removeId));
+                  }}
                 >
                   <span>{item.i}</span>
                 </WidgetWrapper>
