@@ -134,11 +134,11 @@ const Dashboard = () => {
           <div className="dash-wrapper">
             {showGuideLines && (
               <div className="grid-decoy-wrapper">
-                {new Array(rows * 6)
+                {new Array(rows * 16)
                   .fill(null)
                   .map((_, index) => index)
                   .map((v) => {
-                    return <div className="decoy"></div>;
+                    return <div key={`decoy-${v}`} className="decoy"></div>;
                   })}
               </div>
             )}
@@ -171,6 +171,7 @@ const Dashboard = () => {
                   data-grid={item}
                   widgetId={item.id}
                   title={item.title}
+                  className={isEditMode ? 'widget-edit-mode' : ''}
                   onWidgetRemoved={(removeId) => {
                     setLayout((l) => l.filter((w) => w.id !== removeId));
                   }}
