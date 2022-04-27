@@ -1,8 +1,8 @@
 export const dashboardLayout = [
-  { x: 0, y: 0, w: 1, h: 2, id: 'pig', title: 'Pig widget' },
+  { x: 0, y: 0, w: 2, h: 2, id: 'pig', title: 'Pig widget' },
   {
-    x: 0,
-    y: 1,
+    x: 4,
+    y: 0,
     w: 2,
     minW: 2,
     h: 3,
@@ -11,10 +11,10 @@ export const dashboardLayout = [
     title: 'Dog widget',
   },
   {
-    x: 1,
+    x: 2,
     y: 0,
     w: 2,
-    h: 2,
+    h: 3,
     minW: 2,
     minH: 2,
     id: 'cat',
