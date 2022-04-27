@@ -155,7 +155,7 @@ body {
   font-family: 'ibm-plex-mono', sans-serif;
 }
 
-.react-grid-item:hover .remove-widget {
+.react-draggable:hover .remove-widget {
   opacity: 1;
   pointer-events: auto;
 }

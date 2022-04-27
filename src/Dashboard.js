@@ -9,23 +9,8 @@ import WidgetWrapper from './WidgetWrapper';
 const ReactGridLayout = WidthProvider(RGL);
 
 const Dashboard = () => {
-  const defaultProps = {
-    isDraggable: true,
-    isResizable: true,
-    items: 15,
-    rowHeight: 100,
-    preventCollision: false,
-    cols: 6,
-    // cols: { lg: 6, md: 6, sm: 6, xs: 6, xxs: 6 },
-    // ---
-    margin: [10, 10],
-    autoSize: true,
-    // verticalCompact: false,
-    compactType: 'vertical', // null, "horizontal", "vertical"
-    isDroppable: true,
-  };
-
-  // const [isMounted, setIsMounted] = React.useState(false);
+  const [isEditMode, setIsEditMode] = React.useState(true);
+  const [compactType, setCompactType] = React.useState('vertical');
   const [showGuideLines, setShowGuideLines] = React.useState(false);
   const [layout, setLayout] = React.useState(dashboardLayout);
 
@@ -63,40 +48,85 @@ const Dashboard = () => {
     layout.some((ww) => ww.id === w.id) ? false : true
   );
 
+  const defaultProps = {
+    isDraggable: isEditMode,
+    isResizable: isEditMode,
+    items: 15,
+    rowHeight: 100,
+    preventCollision: false,
+    cols: 6,
+    // cols: { lg: 6, md: 6, sm: 6, xs: 6, xxs: 6 },
+    // ---
+    margin: [10, 10],
+    autoSize: true,
+    // verticalCompact: false,
+    compactType: compactType, // null, "horizontal", "vertical"
+    isDroppable: true,
+  };
+
   return (
     <React.Fragment>
       <div className="page-wrapper">
         <div className="left-panel">
-          <div className="left-top-section">
-            <span>Available widgets</span>
-            <div className="drop-removed-items">
-              <span>
-                Drag items here to remove them from the summary layout.
-              </span>
+          {isEditMode && (
+            <div className="left-top-section">
+              <span>Available widgets</span>
+              <div className="drop-removed-items">
+                <span>
+                  Drag items here to remove them from the summary layout.
+                </span>
+              </div>
             </div>
-          </div>
+          )}
 
-          <div className="available-widgets-wrapper">
-            <span>Content</span>
+          {isEditMode && (
+            <div className="available-widgets-wrapper">
+              <span>Content (click to add to dashboard)</span>
 
-            {unusedWidgets.map((w) => {
-              return (
-                <WidgetWrapper
-                  key={w.id}
-                  style={{ minHeight: '200px' }}
-                  className="unused-widget"
-                  draggable={false}
-                  unselectable="on"
-                  title={w.title}
-                  widgetId={w.id}
-                  onClick={() => {
-                    addWidget(w);
-                  }}
-                >
-                  {/* Droppable Element (Drag me!) */}
-                </WidgetWrapper>
-              );
-            })}
+              {unusedWidgets.map((w) => {
+                return (
+                  <WidgetWrapper
+                    key={w.id}
+                    style={{ minHeight: '200px' }}
+                    className="unused-widget"
+                    draggable={false}
+                    unselectable="on"
+                    title={w.title}
+                    widgetId={w.id}
+                    onClick={() => {
+                      addWidget(w);
+                    }}
+                  >
+                    {/* Droppable Element (Drag me!) */}
+                  </WidgetWrapper>
+                );
+              })}
+            </div>
+          )}
+
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                checked={isEditMode}
+                onChange={() => {
+                  setIsEditMode(!isEditMode);
+                }}
+              />
+              Edit mode
+            </label>
+            <div>
+              <label>Compact type</label>
+              <select
+                value={compactType}
+                onChange={(e) => {
+                  setCompactType(e.target.value);
+                }}
+              >
+                <option value="vertical">vertical</option>
+                <option value="horizontal">horizontal</option>
+              </select>
+            </div>
           </div>
         </div>
 
