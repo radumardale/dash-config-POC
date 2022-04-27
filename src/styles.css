@@ -157,15 +157,6 @@ body {
   padding: 20px;
 }
 
-.droppable-element {
-  border: 1px solid lightgray;
-  background: lime;
-  padding: 20px;
-  /* max-width: 200px; */
-  /* min-height: 300px; */
-}
-
-
 /* --- */
 
 .widget-title {
@@ -188,3 +179,17 @@ body {
   text-align: center;
   font-size: 16px;
 }
+
+/* ---- */
+
+.available-widgets-wrapper {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.droppable-element {
+  border: 1px solid var(--light-border);
+}
+

@@ -10,6 +10,7 @@ const WidgetWrapper = React.forwardRef(
           display: 'grid',
           gridTemplateColumns: '1fr',
           gridTemplateRows: 'max-content 1fr',
+          borderRadius: '8px',
           ...style,
         }}
         className={className}

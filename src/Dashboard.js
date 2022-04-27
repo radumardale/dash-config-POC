@@ -55,8 +55,9 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div>
-            <div
+          <div className="available-widgets-wrapper">
+            <span>Content</span>
+            <WidgetWrapper
               className="droppable-element"
               draggable={true}
               unselectable="on"
@@ -65,7 +66,7 @@ const Dashboard = () => {
               data-grid={{ h: 2, w: 2, minW: 2 }}
             >
               Droppable Element (Drag me!)
-            </div>
+            </WidgetWrapper>
           </div>
         </div>
 
