@@ -1,4 +1,5 @@
 :root {
+  --medium-purple-100: #262DAA;
   --medium-purple: #6356DD;
   --border: #F4F2ED;
 }
@@ -99,11 +100,11 @@ body {
 }
 
 .react-grid-item .react-resizable-handle {
+  opacity: 0;
+  pointer-events: none;
   position: absolute;
-  /* width: 20px; */
-  /* height: 20px; */
-  bottom: 0;
-  right: 0;
+  bottom: 9px;
+  right: 9px;
   cursor: se-resize;
 
   width: 0;
@@ -111,19 +112,22 @@ body {
   border-style: solid;
   border-width: 0 0 20px 20px;
   border-color: transparent transparent var(--medium-purple) transparent;
-  
 }
 
-/* .react-grid-item .react-resizable-handle::after {
-  content: "";
+.react-grid-item:hover .react-resizable-handle {
+  opacity: 1;
+  pointer-events: auto;  
+}
+
+.react-grid-item .react-resizable-handle::after {
+  content: "RESIZE";
+  font-family: 'ibm-plex-mono';
+  font-size: 14px;
+  color: var(--medium-purple-100);
   position: absolute;
-  right: 3px;
-  bottom: 3px;
-  width: 5px;
-  height: 5px;
-  border-right: 2px solid rgba(0, 0, 0, 0.4);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
-} */
+  right: 18px;
+  top: 0;
+}
 
 /* ------ */
 .page-wrapper {

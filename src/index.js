@@ -1,4 +1,5 @@
 import './reset.css';
+import './fontFace.css';
 import './styles.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
