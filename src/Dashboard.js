@@ -25,8 +25,13 @@ const Dashboard = () => {
     isDroppable: true,
   };
 
+  // const [isMounted, setIsMounted] = React.useState(false);
   const [showGuideLines, setShowGuideLines] = React.useState(false);
   const [layout, setLayout] = React.useState(dashboardLayout);
+
+  // React.useEffect(() => {
+  //   setIsMounted(true);
+  // }, []);
 
   const addWidget = (addedWidget) => {
     const widget = { ...addedWidget, x: 0, y: 0, w: 2, h: 2 };
@@ -51,7 +56,8 @@ const Dashboard = () => {
   const rows =
     layout.reduce((a, i) => {
       return Math.max(a, i.y + i.h);
-    }, 1) * 2;
+    }, 1) * 3;
+  // console.log(layout, 'rows = ', rows);
 
   const unusedWidgets = availableWidgets.filter((w) =>
     layout.some((ww) => ww.id === w.id) ? false : true
@@ -109,9 +115,11 @@ const Dashboard = () => {
             <ReactGridLayout
               {...defaultProps}
               isDroppable={true}
-              onLayoutChange={(layout) => {
-                console.log('onlayout change', layout);
-                // setLayout(layout);
+              onLayoutChange={(l) => {
+                // console.log('onlayout change', l);
+                // if (isMounted) {
+                //   setLayout(l);
+                // }
               }}
               onDragStart={(e) => {
                 setShowGuideLines(true);
