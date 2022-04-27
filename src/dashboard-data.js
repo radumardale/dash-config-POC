@@ -30,7 +30,7 @@ export const availableWidgets = [
     title: 'Cat widget',
   },
   {
-    minW: 2,
+    minW: 1,
     minH: 2,
     id: 'chicken',
     title: 'Chicken widget',
@@ -42,10 +42,16 @@ export const availableWidgets = [
     title: 'Dog widget',
   },
   {
-    minW: 2,
-    minH: 2,
+    minW: 4,
+    minH: 4,
     id: 'cow',
     title: 'Cow widget',
+  },
+  {
+    minW: 3,
+    minH: 2,
+    id: 'donkey',
+    title: 'Donkey widget',
   },
   {
     minW: 2,

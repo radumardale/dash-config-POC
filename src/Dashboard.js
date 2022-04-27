@@ -19,7 +19,13 @@ const Dashboard = () => {
   // }, []);
 
   const addWidget = (addedWidget) => {
-    const widget = { ...addedWidget, x: 0, y: 0, w: 2, h: 2 };
+    const widget = {
+      ...addedWidget,
+      x: 0,
+      y: 0,
+      w: Math.max(addedWidget.minW, 1),
+      h: Math.max(addedWidget.minH, 1),
+    };
 
     if (layout.some((item) => item.x === 0 && item.y === 0)) {
       setLayout(
