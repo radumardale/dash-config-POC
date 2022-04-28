@@ -198,12 +198,12 @@ const Dashboard = () => {
                   }}
                 >
                   {!item.minW && !item.minH && (
-                    <span>
+                    <span className="info-message">
                       I dont have a min size - you can resize me how you see fit
                     </span>
                   )}
                   {(item.minW || item.minH) && (
-                    <span>
+                    <span className="info-message">
                       I have a min size of (w x h): {item.minW} x {item.minH}
                     </span>
                   )}
