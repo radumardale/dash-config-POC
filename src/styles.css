@@ -193,7 +193,6 @@ body {
 .right-panel {
   background: var(--cream-20);
   padding: 20px;
-  overflow: auto;
 }
 
 /* --- */
