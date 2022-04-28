@@ -121,8 +121,8 @@ body {
   border-color: transparent transparent var(--medium-purple) transparent;
 }
 
-/* .react-grid-item:hover .react-resizable-handle, */
-.react-grid-item.widget-edit-mode .react-resizable-handle,
+.react-grid-item:hover .react-resizable-handle,
+/* .react-grid-item.widget-edit-mode .react-resizable-handle, */
 .resizing .react-resizable-handle {
   opacity: 1;
   pointer-events: auto;  
@@ -160,8 +160,8 @@ body {
   font-family: 'ibm-plex-mono', sans-serif;
 }
 
-/* .react-draggable:not(.resizing):hover .remove-widget { */
-.react-draggable.widget-edit-mode:not(.resizing) .remove-widget {
+.react-draggable:not(.resizing):hover .remove-widget {
+/* .react-draggable.widget-edit-mode:not(.resizing) .remove-widget { */
   opacity: 1;
   pointer-events: auto;
 }
@@ -193,6 +193,7 @@ body {
 .right-panel {
   background: var(--cream-20);
   padding: 20px;
+  overflow: auto;
 }
 
 /* --- */

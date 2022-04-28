@@ -66,17 +66,23 @@ const Dashboard = () => {
     <React.Fragment>
       <div className="page-wrapper">
         <div className="left-panel">
-          {isEditMode && (
+          {/* {isEditMode && (
             <div className="left-top-section">
               <span>Available widgets</span>
-              <div className="drop-removed-items">
+              <div
+                className="drop-removed-items"
+                onDrop={(e) => {
+                  e.preventDefault();
+                  console.log('dropped!');
+                }}
+              >
                 <span>
                   Drag items here to remove them from the summary layout.
                 </span>
               </div>
             </div>
           )}
-
+ */}
           {isEditMode && (
             <div className="available-widgets-wrapper">
               <span>Content (click to add to dashboard)</span>
@@ -191,7 +197,16 @@ const Dashboard = () => {
                     setLayout((l) => l.filter((w) => w.id !== removeId));
                   }}
                 >
-                  {/* <span>{item.id}</span> */}
+                  {!item.minW && !item.minH && (
+                    <span>
+                      I dont have a min size - you can resize me how you see fit
+                    </span>
+                  )}
+                  {(item.minW || item.minH) && (
+                    <span>
+                      I have a min size of (w x h): {item.minW} x {item.minH}
+                    </span>
+                  )}
                 </WidgetWrapper>
               ))}
             </ReactGridLayout>
