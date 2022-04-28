@@ -2,10 +2,6 @@ import * as React from 'react';
 import RGL, { WidthProvider } from 'react-grid-layout';
 import { dashboardLayout, availableWidgets } from './dashboard-data';
 import WidgetWrapper from './WidgetWrapper';
-// import silv from "./sylvester.png";
-// import { Responsive, WidthProvider } from "react-grid-layout";
-
-// const ReactGridLayout = WidthProvider(Responsive);
 const ReactGridLayout = WidthProvider(RGL);
 
 const Dashboard = () => {
@@ -13,10 +9,6 @@ const Dashboard = () => {
   const [compactType, setCompactType] = React.useState('vertical');
   const [showGuideLines, setShowGuideLines] = React.useState(false);
   const [layout, setLayout] = React.useState(dashboardLayout);
-
-  // React.useEffect(() => {
-  //   setIsMounted(true);
-  // }, []);
 
   const addWidget = (addedWidget) => {
     const widget = {
